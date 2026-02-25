@@ -36,7 +36,7 @@
       a    { color: #ca8465; }
     }
 
-    /* ---------- NEW: page‑wide background image ---------- */
+    /* ---------- Page‑wide background image (fallback) ---------- */
     html, body {
       height: 100%;   /* Make the <html> and <body> elements fill the whole viewport */
       margin: 0;      /* Remove the browser’s default outer margin */
@@ -44,54 +44,70 @@
 
     body {
       /* ---- Your original layout rules (kept unchanged) ---- */
-      line-height: 1.6;                                   /* default line spacing */
+      line-height: 1.6;
       font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                   Roboto, Helvetica, Arial, sans-serif;   /* fallback font stack */
-      text-align: center;                                 /* center‑align text */
-      margin: 1rem auto;                                  /* vertical margin, auto horizontal */
-      min-height: 90vh;                                   /* at least 90 % of viewport height */
-      display: flex;                                      /* use Flexbox for centering */
-      flex-direction: column;                             /* stack children vertically */
-      justify-content: center;                            /* vertical centering */
-      align-items: center;                                /* horizontal centering */
+                   Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+      margin: 1rem auto;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-      /* ---- NEW background settings ---- */
+      /* ---- Fallback static background (kept for browsers that block the GIF) ---- */
       background: url('assets/purp.png') no-repeat center center fixed;
-      /*   url('assets/bg.jpg') → path to the image file (relative to index.html)
-         no-repeat          → don’t tile the image
-         center center      → position it in the middle of the viewport
-         fixed              → keep the image fixed while the page scrolls */
-
-      background-size: cover;   /* Scale the image so the whole viewport is covered (may crop) */
-      background-color: #111;   /* Dark fallback colour if the image fails to load */
-      color: #fff;              /* Force text to white so it’s readable on a dark picture */
+      background-size: cover;
+      background-color: #111;
+      color: #fff;
     }
     /* ----------------------------------------------------- */
 
     img.u-photo { border-radius: 50%; }   /* Makes any <img class="u-photo"> appear circular */
     ul { padding: 0; list-style: none; } /* Remove bullet points and default padding from <ul> */
 
+    /* ---------- NEW: GIF container that lives *behind* the page content ---------- */
+    .bg-gif {
+      position: fixed;          /* stay fixed while the page scrolls */
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;              /* push it behind everything else */
+      pointer-events: none;     /* clicks go through to your links */
+    }
   </style>
 </head>
 
 <body>
-  <!-- The visible content of the page starts here -->
+  <!-- -------------------------------------------------
+       1️⃣ Tenor GIF – placed in a fixed container behind everything
+       ------------------------------------------------- -->
+  <div class="bg-gif">
+    <div class="tenor-gif-embed"
+         data-postid="26289678"
+         data-share-method="host"
+         data-aspect-ratio="1"
+         data-width="100%">
+      <a href="https://tenor.com/view/sonic-mania-portal-sticker-gif-26289678">
+        Sonic Mania Sticker
+      </a> from
+      <a href="https://tenor.com/search/sonic-stickers">Sonic Stickers</a>
+    </div>
+  </div>
 
-  <!-- h‑card microformat – helps other sites understand who the author is -->
+  <!-- -------------------------------------------------
+       2️⃣ Your original page content (unchanged)
+       ------------------------------------------------- -->
   <main class="h-card" rel="author">
-
     <!-- Uncomment the line below and replace __your_image__ with a real file name
          to show a profile picture. -->
     <!-- <img class="u-photo" alt="My profile photo" src="__your_image__" /> -->
 
     <h1>
       I'm <span class="p-name">Fritz</span>.
-      <!-- .p-name is part of the h‑card spec; it marks the person's name -->
     </h1>
 
     <p class="p-note">
       ...and I am a human on the Internet.
-      <!-- .p-note is a short description of the person -->
     </p>
 
     <ul>
@@ -103,6 +119,10 @@
       <li>Twitter: <a class="u-url" href="https://twitter.com/_mytwitterid_" rel="me">@_mytwitterid_</a></li>
     </ul>
   </main>
-</body>
 
+  <!-- -------------------------------------------------
+       3️⃣ Tenor embed script (must stay after the embed div)
+       ------------------------------------------------- -->
+  <script async type="text/javascript" src="https://tenor.com/embed.js"></script>
+</body>
 </html>
