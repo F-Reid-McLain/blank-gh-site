@@ -11,9 +11,10 @@
   <title>Feeling Fritzy?</title>
 
   <style>
+    /* Prevent dark mode from turning text white */
     @media (prefers-color-scheme: dark) {
-      html { background-color: #111111; color: #fbfbfb; }
-      a    { color: #ca8465; }
+      html { background-color: #111111; color: #000; }
+      a    { color: #000; }
     }
 
     html, body {
@@ -33,12 +34,15 @@
       justify-content: center;
       align-items: center;
 
-      /* Reference the local GIF and remove purp.png */
       background: url('assets/portal.gif') no-repeat center center fixed;
       background-size: cover;
       background-color: #111;
-      color: #fff;
+      /* Changed from #fff to #000 */
+      color: #000;
     }
+
+    /* Set links to black */
+    a { color: #000; }
 
     img.u-photo { border-radius: 50%; }
     ul { padding: 0; list-style: none; }
