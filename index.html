@@ -16,23 +16,40 @@
    -->
   <title>My New Website</title>
   <style>
-    @media (prefers-color-scheme: dark) {
-      html { background-color: #111111; color: #fbfbfb; }
-      a { color: #ca8465; }
-    }
-    body {
-      line-height: 1.6;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-      text-align: center;
-      margin: 1rem auto;
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    img.u-photo { border-radius: 50%; }
-    ul { padding: 0; list-style: none; }
+    /* ---------- Dark‑mode defaults (unchanged) ---------- */
+  @media (prefers-color-scheme: dark) {
+    html { background-color: #111111; color: #fbfbfb; }
+    a { color: #ca8465; }
+  }
+
+  /* ---------- NEW: page‑wide background image ---------- */
+  html, body {
+    height: 100%;               /* make the viewport fill the page */
+    margin: 0;                  /* remove default margin */
+  }
+  body {
+    /* keep all of your original body rules */
+    line-height: 1.6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                 Roboto, Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin: 1rem auto;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* *** NEW background settings *** */
+    background: url('assets/bg.png') no-repeat center center fixed;
+    background-size: cover;          /* fill the whole viewport */
+    background-color: #111;          /* fallback if the image fails */
+    color: #fff;                     /* ensure text is readable on dark pics */
+  }
+  /* ----------------------------------------------------- */
+
+  img.u-photo { border-radius: 50%; }
+  ul { padding: 0; list-style: none; }
   </style>
 </head>
 
