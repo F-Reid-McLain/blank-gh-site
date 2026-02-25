@@ -1,107 +1,51 @@
 <!DOCTYPE html>
-<!-- Declares that this document is HTML5 -->
-
 <html lang="en">
-<!-- Root element of the page; `lang="en"` tells browsers the language is English -->
-
 <head>
-  <!-- Metadata and resources that affect the whole page go here -->
-
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <!-- Tells the browser the document is HTML and uses UTF‑8 character encoding -->
-
   <meta name="mobile-web-app-capable" content="yes" />
-  <!-- Hints to mobile browsers that the page can be launched like a web‑app -->
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Makes the layout responsive on phones/tablets (sets the visible width to the device width) -->
 
   <link rel="authorization_endpoint" href="https://indieauth.com/auth">
   <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-  <!-- IndieAuth discovery links – used by some IndieWeb tools; can be left as‑is -->
-
-  <!--
-    Instructions for adding a Microsub endpoint (IndieWeb feature).
-    If you never use Microsub you can ignore or delete this comment block.
-  -->
 
   <title>Feeling Fritzy?</title>
-  <!-- Text that appears in the browser tab and in search results -->
 
   <style>
-    /* ---------- Dark‑mode defaults (unchanged) ---------- */
     @media (prefers-color-scheme: dark) {
-      /* When the user’s OS is in dark mode, apply these colors */
       html { background-color: #111111; color: #fbfbfb; }
       a    { color: #ca8465; }
     }
 
-    /* ---------- Page‑wide background image (fallback) ---------- */
     html, body {
-      height: 100%;   /* Make the <html> and <body> elements fill the whole viewport */
-      margin: 0;      /* Remove the browser’s default outer margin */
+      height: 100%;
+      margin: 0;
     }
 
     body {
-      /* ---- Your original layout rules (kept unchanged) ---- */
       line-height: 1.6;
       font-family: system-ui, -apple-system, BlinkMacSystemFont,
                    Roboto, Helvetica, Arial, sans-serif;
       text-align: center;
-      margin: 1rem auto;
       min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
 
-      /* ---- Fallback static background (kept for browsers that block the GIF) ---- */
-      background: url('assets/purp.png') no-repeat center center fixed;
+      /* Reference the local GIF and remove purp.png */
+      background: url('assets/portal.gif') no-repeat center center fixed;
       background-size: cover;
       background-color: #111;
       color: #fff;
     }
-    /* ----------------------------------------------------- */
 
-    img.u-photo { border-radius: 50%; }   /* Makes any <img class="u-photo"> appear circular */
-    ul { padding: 0; list-style: none; } /* Remove bullet points and default padding from <ul> */
-
-    /* ---------- NEW: GIF container that lives *behind* the page content ---------- */
-    .bg-gif {
-      position: fixed;          /* stay fixed while the page scrolls */
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;              /* push it behind everything else */
-      pointer-events: none;     /* clicks go through to your links */
-    }
+    img.u-photo { border-radius: 50%; }
+    ul { padding: 0; list-style: none; }
   </style>
 </head>
 
 <body>
-  <!-- -------------------------------------------------
-       1️⃣ Tenor GIF – placed in a fixed container behind everything
-       ------------------------------------------------- -->
-  <div class="bg-gif">
-    <div class="tenor-gif-embed"
-         data-postid="26289678"
-         data-share-method="host"
-         data-aspect-ratio="1"
-         data-width="100%">
-      <a href="https://tenor.com/view/sonic-mania-portal-sticker-gif-26289678">
-        Sonic Mania Sticker
-      </a> from
-      <a href="https://tenor.com/search/sonic-stickers">Sonic Stickers</a>
-    </div>
-  </div>
-
-  <!-- -------------------------------------------------
-       2️⃣ Your original page content (unchanged)
-       ------------------------------------------------- -->
   <main class="h-card" rel="author">
-    <!-- Uncomment the line below and replace __your_image__ with a real file name
-         to show a profile picture. -->
-    <!-- <img class="u-photo" alt="My profile photo" src="__your_image__" /> -->
-
     <h1>
       I'm <span class="p-name">Fritz</span>.
     </h1>
@@ -111,18 +55,10 @@
     </p>
 
     <ul>
-      <!-- Replace __this_page__ with the actual URL of your site -->
       <li><a class="u-uid u-url" href="__this_page__">later I will post things here</a></li>
-
-      <!-- Update the placeholders with your real usernames -->
       <li>Github: <a class="u-url" href="https://github.com/_mygithubid_" rel="me">@_mygithubid_</a></li>
       <li>Twitter: <a class="u-url" href="https://twitter.com/_mytwitterid_" rel="me">@_mytwitterid_</a></li>
     </ul>
   </main>
-
-  <!-- -------------------------------------------------
-       3️⃣ Tenor embed script (must stay after the embed div)
-       ------------------------------------------------- -->
-  <script async type="text/javascript" src="https://tenor.com/embed.js"></script>
 </body>
 </html>
