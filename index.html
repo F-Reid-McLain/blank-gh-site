@@ -2,45 +2,52 @@
 <html lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="authorization_endpoint" href="https://indieauth.com/auth">
-  <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-
   <title>Feeling Fritzy?</title>
 
   <style>
-    @media (prefers-color-scheme: dark) {
-      html { background-color: #111111; color: #fbfbfb; }
-      a    { color: #ca8465; }
-    }
-
+    /* Global text color set to black */
     html, body {
       height: 100%;
       margin: 0;
+      color: #000; 
     }
+
+    /* Links updated to black for contrast */
+    a { color: #000; text-decoration: underline; }
 
     body {
       line-height: 1.6;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                   Roboto, Helvetica, Arial, sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       text-align: center;
-      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
+      background-color: #fff; /* White background behind the GIF */
+    }
 
-      /* Reference the local GIF and remove purp.png */
-      background: url('assets/portal.gif') no-repeat center center fixed;
-      background-size: cover;
-      background-color: #111;
-      color: #fff;
+    /* Pseudo-element to handle the 50% sized GIF */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      /* 50% width/height of the container */
+      background: url('assets/portal.gif') no-repeat center center;
+      background-size: 50%; 
+      z-index: -1;
     }
 
     img.u-photo { border-radius: 50%; }
     ul { padding: 0; list-style: none; }
+
+    /* Overriding dark mode preference to keep text black */
+    @media (prefers-color-scheme: dark) {
+      html { background-color: #fff; color: #000; }
+      a { color: #000; }
+    }
   </style>
 </head>
 
@@ -49,11 +56,9 @@
     <h1>
       I'm <span class="p-name">Fritz</span>.
     </h1>
-
     <p class="p-note">
       ...and I am a human on the Internet.
     </p>
-
     <ul>
       <li><a class="u-uid u-url" href="__this_page__">later I will post things here</a></li>
       <li>Github: <a class="u-url" href="https://github.com/_mygithubid_" rel="me">@_mygithubid_</a></li>
