@@ -4,7 +4,7 @@ body {
   min-height: 100vh;
   font-family: system-ui, sans-serif;
   /* Sets the purple GIF as a fixed background that doesn't scroll */
-  background: url('/assets/purpbg.gif') no-repeat center center fixed;
+  background: url('assets/purpbg.gif') no-repeat center center fixed;
   background-size: cover;
   background-color: #111;
   /* Flexbox here centers the entire layout-container on the screen */
