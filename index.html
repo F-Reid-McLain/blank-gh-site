@@ -1,67 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="authorization_endpoint" href="https://indieauth.com/auth">
-  <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-
   <title>Feeling Fritzy?</title>
-
-  <style>
-    /* Prevent dark mode from turning text white */
-    @media (prefers-color-scheme: dark) {
-      html { background-color: #111111; color: #000; }
-      a    { color: #000; }
-    }
-
-    html, body {
-      height: 100%;
-      margin: 0;
-      color: #000;
-    }
-
-    body {
-      line-height: 1.6;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                   Roboto, Helvetica, Arial, sans-serif;
-      text-align: center;
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      background: url('assets/portal.gif') no-repeat center center fixed;
-      background-size: cover;
-      background-color: #111;
-      /* Changed from #fff to #000 */
-      color: #000;
-    }
-
-    /* Set links to black */
-    a { color: #000; }
-
-    img.u-photo { border-radius: 50%; }
-    ul { padding: 0; list-style: none; }
-  </style>
+  
+  <!-- Fonts: Nabla for titles, standard system fonts for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <main class="h-card" rel="author">
-    <h1>
-      I'm <span class="p-name">Fritz</span>.
-    </h1>
+  <!-- Container for the Sidebar + Main Content layout -->
+  <div class="layout-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <!-- Box 1: Navigation -->
+      <section class="glass-box">
+        <h3>Directory</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="consumerism.html">Consumerism</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </section>
 
-    <p class="p-note">
-      ...and I am a human on the Internet.
-    </p>
+      <!-- Box 2: Roadmap -->
+      <section class="glass-box">
+        <h3>Possible Updates</h3>
+        <p>Visitor Count</p>
+        <p>Guest Book</p>
+        <p>Custom Cursor</p>
+      </section>
 
-    <ul>
-      <li><a class="u-uid u-url" href="__this_page__">later I will post things here</a></li>
-    </ul>
-  </main>
+      <!-- Box 3: Fun Stuff -->
+      <section class="glass-box">
+        <h3>Stickers</h3>
+        <div class="sticker-grid">
+          <img src="assets/rats.gif" alt="rats">
+          <img src="assets/ClickHere.gif" alt="click here">
+          <img src="assets/web-pi.png" alt="web pi">
+          <img src="assets/nyan.gif" alt="nyan cat">
+        </div>
+      </section>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="glass-box main-content">
+      
+      <!-- Flex Header: GIFs flanking the Nabla title -->
+      <div class="header-container">
+        <img src="assets/moon.gif" class="header-gif" alt="moon">
+        <h1>WELCOME! I'M FRITZ.</h1>
+        <img src="assets/sun.gif" class="header-gif" alt="sun">
+      </div>
+
+      <p><strong>This is a work in progress.</strong></p>
+
+      <p>
+        This page is an experiment in web design and certainly not one in personal branding. 
+        If you know me professionally, I am placing a lot of trust in you. I plan to keep some 
+        of my projects on here as well as mess around with HTML and CSS to learn the basics.
+      </p>
+
+      <p>
+        I am a big believer in open source and free software and have gotten quite tired 
+        of the corporate web and social media harvesting all of my data. This is my attempt 
+        to reclaim a small piece of the internet back for myself.
+      </p>
+
+      <p>Here's a brief description of what you'll find:</p>
+      
+      <!-- List with inline GIFs -->
+      <ul class="main-list">
+        <li>
+          <img src="assets/smiley.gif" class="inline-gif"> 
+          <strong>Projects:</strong> Raspberry Pi builds, 3D prints, etc.
+        </li>
+        <li>
+          <img src="assets/smiley.gif" class="inline-gif"> 
+          <strong>Consumerism:</strong> When I wake up from my fugue state and have sated my thirst for trinkets I will review them here
+        </li>
+        <li>
+          <img src="assets/smiley.gif" class="inline-gif"> 
+          <strong>Blog:</strong> Occasional questionable thoughts.
+        </li>
+        <li>
+          <img src="assets/smiley.gif" class="inline-gif"> 
+          <strong>About:</strong> Why are you still reading?
+        </li>
+      </ul>
+
+      <!-- Horizontal Divider -->
+      <img src="assets/greenlightning.gif" class="divider" alt="lightning divider">
+
+    </main>
+  </div>
 </body>
 </html>
